@@ -35,6 +35,13 @@
             <version>2.15.2</version>
         </dependency>
 
+        <!-- COnexion con la base de datos -->
+        <dependency>
+            <groupId>com.microsoft.sqlserver</groupId>
+            <artifactId>mssql-jdbc</artifactId>
+            <version>6.2.1.jre8</version>
+        </dependency>
+
 
 
     </dependencies>

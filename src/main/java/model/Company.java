@@ -67,13 +67,13 @@ public class Company {
 
     @Override
     public String toString() {
-        return "model.Company{" +
+        return
                 "name='" + name + '\'' +
                 ", isin='" + isin + '\'' +
                 ", sector='" + sector + '\'' +
                 ", subsector='" + subsector + '\'' +
                 ", tradingSystem='" + tradingSystem + '\'' +
-                ", indices='" + indices + '\'' +
-                '}';
+                ", indices='" + indices + '\''
+                ;
     }
 }
