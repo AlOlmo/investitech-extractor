@@ -8,8 +8,8 @@ import org.apache.hc.core5.util.Timeout;
 
 public class BMEApiConnector {
 
-    private final String BASE_URL = "https://www.bolsasymercados.es/API/Market/v1/EQ/";
-    private final int PAGE_SIZE = 100;
+    private static final String BASE_URL = "https://www.bolsasymercados.es/API/Market/v1/EQ/";
+    private static final int PAGE_SIZE = 100;
     private ObjectMapper objectMapper = new ObjectMapper();
 
     public CompaniesResponse getCompanies(String tradingSystem, int page) {
@@ -21,15 +21,11 @@ public class BMEApiConnector {
                     .responseTimeout(Timeout.ofSeconds(5))
                     .execute().returnContent().asString();
 
-            CompaniesResponse result = objectMapper.readValue(response, CompaniesResponse.class);
-
-            return result;
+            return objectMapper.readValue(response, CompaniesResponse.class);
         } catch (Exception e) {
-            e.printStackTrace();
-            throw new RuntimeException();
+            throw new RuntimeException(e);
         }
-
-    };
+    }
 
     public ValuesResponse getValues(String dateFrom, String dateTo, String isin, int page) {
 
@@ -40,13 +36,10 @@ public class BMEApiConnector {
                     .responseTimeout(Timeout.ofSeconds(5))
                     .execute().returnContent().asString();
 
-            ValuesResponse result = objectMapper.readValue(response, ValuesResponse.class);
-
-            return result;
+            return objectMapper.readValue(response, ValuesResponse.class);
         } catch (Exception e) {
-            e.printStackTrace();
-            throw new RuntimeException();
+            throw new RuntimeException(e);
         }
-    };
+    }
 
 }

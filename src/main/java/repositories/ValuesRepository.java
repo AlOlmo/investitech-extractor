@@ -6,7 +6,6 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-// TODO: Implementar todo, parecido a CompaniesRepository
 public class ValuesRepository {
 
     private final String host;
@@ -45,9 +44,9 @@ public class ValuesRepository {
             values.setDate(resultset.getString("date"));
             values.setPrice(resultset.getDouble("price"));
             values.setVariation(resultset.getDouble("variation"));
-            values.setMax_value(resultset.getDouble("max_value"));
-            values.setMin_value(resultset.getDouble("min_value"));
-            values.setOpen_value(resultset.getDouble("open_value"));
+            values.setMaxValue(resultset.getDouble("max_value"));
+            values.setMinValue(resultset.getDouble("min_value"));
+            values.setOpenValue(resultset.getDouble("open_value"));
 
             result.add(values);
         }

@@ -1,6 +1,5 @@
 package extractor.entities;
 
-// TODO: Adaptar el modelado a la nueva tabla
 public class StockValue {
 
     private String date;

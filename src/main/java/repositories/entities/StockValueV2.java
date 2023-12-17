@@ -6,9 +6,9 @@ public class StockValueV2 {
     private String date;
     private double price;
     private double variation;
-    private double max_value;
-    private double min_value;
-    private double open_value;
+    private double maxValue;
+    private double minValue;
+    private double openValue;
 
     public String getSymbol() {
         return symbol;
@@ -42,40 +42,40 @@ public class StockValueV2 {
         this.variation = variation;
     }
 
-    public double getMax_value() {
-        return max_value;
+    public double getMaxValue() {
+        return maxValue;
     }
 
-    public void setMax_value(double max_value) {
-        this.max_value = max_value;
+    public void setMaxValue(double maxValue) {
+        this.maxValue = maxValue;
     }
 
-    public double getMin_value() {
-        return min_value;
+    public double getMinValue() {
+        return minValue;
     }
 
-    public void setMin_value(double min_value) {
-        this.min_value = min_value;
+    public void setMinValue(double minValue) {
+        this.minValue = minValue;
     }
 
-    public double getOpen_value() {
-        return open_value;
+    public double getOpenValue() {
+        return openValue;
     }
 
-    public void setOpen_value(double open_value) {
-        this.open_value = open_value;
+    public void setOpenValue(double openValue) {
+        this.openValue = openValue;
     }
 
     @Override
     public String toString() {
-        return "extractor.entities.StockValue{" +
-                "date='" + date + '\'' +
-                ", symbol=" + symbol +
+        return "StockValueV2{" +
+                "symbol='" + symbol + '\'' +
+                ", date='" + date + '\'' +
                 ", price=" + price +
                 ", variation=" + variation +
-                ", max_value=" + max_value +
-                ", min_value=" + min_value +
-                ", open_value=" + open_value +
+                ", maxValue=" + maxValue +
+                ", minValue=" + minValue +
+                ", openValue=" + openValue +
                 '}';
     }
 }

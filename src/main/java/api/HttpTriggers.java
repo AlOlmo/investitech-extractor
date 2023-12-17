@@ -22,8 +22,8 @@ public class HttpTriggers {
     private final CompaniesRepository companiesRepository = CompaniesRepository.fromEnvVariables();
     private final ValuesRepository valuesRepository = ValuesRepository.fromEnvVariables();
 
-    private final String COMPANIES_ENDPOINT = "companies";
-    private final String STOCK_VALUES_ENDPOINT = "stockvalues";
+    private static final String COMPANIES_ENDPOINT = "companies";
+    private static final String STOCK_VALUES_ENDPOINT = "stockvalues";
 
     @FunctionName(COMPANIES_ENDPOINT)
     public List<CompanyV2> getCompanies(
