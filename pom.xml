@@ -8,8 +8,11 @@
     <artifactId>investitech-extractor</artifactId>
     <version>0.1</version>
     <properties>
+        <function.app.name>proyectoPFCFunctions</function.app.name>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
+        <azure.functions.java.library.version>3.1.0</azure.functions.java.library.version>
+        <azure.functions.maven.plugin.version>1.29.0</azure.functions.maven.plugin.version>
     </properties>
 
     <!-- Librerías -->
@@ -42,10 +45,48 @@
             <version>12.5.0.jre11-preview</version>
         </dependency>
 
-
-
+        <!-- Azure Functions -->
+        <dependency>
+            <groupId>com.microsoft.azure.functions</groupId>
+            <artifactId>azure-functions-java-library</artifactId>
+            <version>${azure.functions.java.library.version}</version>
+        </dependency>
 
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.microsoft.azure</groupId>
+                <artifactId>azure-functions-maven-plugin</artifactId>
+                <version>${azure.functions.maven.plugin.version}</version>
+                <configuration>
+                    <appName>${function.app.name}</appName>
+                    <resourceGroup>proyectoPFC</resourceGroup>
+                    <appServicePlanName>java-functions-app-service-plan</appServicePlanName>
+                    <region>eastus</region>
+                    <runtime>
+                        <os>linux</os>
+                        <javaVersion>${maven.compiler.target}</javaVersion>
+                    </runtime>
+                    <appSettings>
+                        <property>
+                            <name>FUNCTIONS_EXTENSION_VERSION</name>
+                            <value>~4</value>
+                        </property>
+                    </appSettings>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>package-functions</id>
+                        <goals>
+                            <goal>package</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 
 
 </project>
