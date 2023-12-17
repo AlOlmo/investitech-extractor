@@ -6,25 +6,24 @@ import com.microsoft.azure.functions.HttpRequestMessage;
 import com.microsoft.azure.functions.annotation.AuthorizationLevel;
 import com.microsoft.azure.functions.annotation.FunctionName;
 import com.microsoft.azure.functions.annotation.HttpTrigger;
-import model.Company;
-import model.CompanyV2;
-import model.StockValue;
-import model.StockValueV2;
-import repository.CompaniesRepository;
-import repository.ValuesRepository;
+import extractor.entities.Company;
+import repositories.entities.CompanyV2;
+import extractor.entities.StockValue;
+import repositories.entities.StockValueV2;
+import repositories.CompaniesRepository;
+import repositories.ValuesRepository;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 public class HttpTriggers {
 
-    private final String COMPANIES_ENDPOINT = "companies";
-    private final String STOCK_VALUES_ENDPOINT = "stock-values";
+    private final CompaniesRepository companiesRepository = CompaniesRepository.fromEnvVariables();
+    private final ValuesRepository valuesRepository = ValuesRepository.fromEnvVariables();
 
-    private CompaniesRepository companiesRepository = CompaniesRepository.fromEnvVariables();
-    private ValuesRepository valuesRepository = ValuesRepository.fromEnvVariables();
+    private static final String COMPANIES_ENDPOINT = "companies";
+    private static final String STOCK_VALUES_ENDPOINT = "stockvalues";
 
     @FunctionName(COMPANIES_ENDPOINT)
     public List<CompanyV2> getCompanies(

@@ -1,16 +1,20 @@
-import model.CompaniesResponse;
-import model.Company;
-import model.StockValue;
-import model.ValuesResponse;
+package extractor;
+
+import extractor.entities.CompaniesResponse;
+import extractor.entities.Company;
+import extractor.entities.StockValue;
+import extractor.entities.ValuesResponse;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.logging.Logger;
 
 public class Extractor {
 
+    private Logger logger = Logger.getLogger(getClass().getName());
     private BMEApiConnector bmeApiConnector = new BMEApiConnector();
 
     public List<Company> getCompanies(String tradingSystem) {
@@ -18,7 +22,7 @@ public class Extractor {
         int page = 0;
         List<Company> result = new ArrayList<>();
         while(!fin) {
-            System.out.println("Obteniendo página " + page);
+            logger.info("Obteniendo página " + page);
             CompaniesResponse companiesResponse = bmeApiConnector.getCompanies(tradingSystem, page);
             result.addAll(Arrays.asList(companiesResponse.getData()));
             fin = !companiesResponse.isHasMoreResults();
@@ -34,7 +38,7 @@ public class Extractor {
         int page = 0;
         List<StockValue> result = new ArrayList<>();
         while(!fin) {
-            System.out.println("Obteniendo página " + page);
+            logger.info("Obteniendo página " + page);
             ValuesResponse valuesResponse = bmeApiConnector.getValues(dateFromFormatted, dateToFormatted, isin, page);
             result.addAll(Arrays.asList(valuesResponse.getData()));
             fin = !valuesResponse.isHasMoreResults();

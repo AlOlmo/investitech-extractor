@@ -1,6 +1,5 @@
-package model;
+package extractor.entities;
 
-// TODO: Adaptar el modelado a la nueva tabla
 public class StockValue {
 
     private String date;
@@ -132,7 +131,7 @@ public class StockValue {
 
     @Override
     public String toString() {
-        return "model.StockValue{" +
+        return "extractor.entities.StockValue{" +
                 "date='" + date + '\'' +
                 ", close=" + close +
                 ", reference=" + reference +

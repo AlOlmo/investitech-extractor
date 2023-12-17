@@ -1,4 +1,4 @@
-package model;
+package extractor.entities;
 
 public class Details {
      private String name;
@@ -40,7 +40,7 @@ public class Details {
 
     @Override
     public String toString() {
-        return "model.Details{" +
+        return "extractor.entities.Details{" +
                 "name='" + name + '\'' +
                 ", market='" + market + '\'' +
                 ", ticker='" + ticker + '\'' +
