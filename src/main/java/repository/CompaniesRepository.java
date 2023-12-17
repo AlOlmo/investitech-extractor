@@ -1,8 +1,11 @@
 package repository;
 
 import model.Company;
+import model.CompanyV2;
+import model.StockValueV2;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class CompaniesRepository {
@@ -18,6 +21,7 @@ public class CompaniesRepository {
         this.user = user;
         this.pass = pass;
     }
+
 
     public static CompaniesRepository fromEnvVariables() {
         String host = System.getenv().get("DATABASE_HOST");
@@ -45,8 +49,23 @@ public class CompaniesRepository {
         connection.close();
     }
 
-    public List<Company> selectAll() {
-        return null; //TODO: Implementar
+
+    public List<CompanyV2> selectAll() throws SQLException {
+        List<CompanyV2> result = new ArrayList<>();
+
+        String query = "SELECT * FROM dbo.companies";
+        Connection connection = DriverManager.getConnection(buildConnectionString());
+        Statement statement = connection.createStatement();
+        ResultSet resultset = statement.executeQuery(query);
+
+        while (resultset.next()) {
+            CompanyV2 company = new CompanyV2();
+            company.setName(resultset.getString("name"));
+            company.setSymbol(resultset.getString("symbol"));
+            result.add(company);
+        }
+
+        return result;
     }
 
     private String buildConnectionString() {

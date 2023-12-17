@@ -29,7 +29,6 @@ public class BMEApiConnector {
 
     };
 
-    //TODO extraer parametros fuera de la url y que se reciban por parametros en la cabecera del metodo.
     public ValuesResponse getValues(String dateFrom, String dateTo, String isin, int page) {
 
         try {

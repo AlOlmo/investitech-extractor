@@ -1,9 +1,14 @@
+import model.Company;
+import model.CompanyV2;
+import model.StockValueV2;
 import repository.CompaniesRepository;
+import repository.ValuesRepository;
 
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
@@ -11,7 +16,15 @@ public class Main {
     public static void main(String[] args) throws SQLException, IOException {
         setDatabaseCredentials();
         CompaniesRepository companiesRepository = CompaniesRepository.fromEnvVariables();
-        companiesRepository.save(new ArrayList<>());
+        List<CompanyV2> lista = companiesRepository.selectAll();
+        for (CompanyV2 companyV2 : lista) {
+            System.out.println(companyV2);
+        }
+        ValuesRepository valuesRepository = ValuesRepository.fromEnvVariables();
+        List<StockValueV2> values = valuesRepository.selectValues();
+        for (StockValueV2 stockValueV2 : values) {
+            System.out.println(stockValueV2);
+        }
     }
 
     public static void setDatabaseCredentials() throws IOException {
