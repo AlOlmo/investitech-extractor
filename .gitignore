@@ -1,0 +1,5 @@
+target
+src/operations/resources/credentials.properties
+investitech-extractor.iml
+.idea
+*/credentials.properties

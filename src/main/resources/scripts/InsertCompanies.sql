@@ -1,0 +1,1 @@
+INSERT INTO dbo.companies(name, isin, sector, subsector, tradingSystem, indices) VALUES ( ?, ?, ?, ?, ?, ?)

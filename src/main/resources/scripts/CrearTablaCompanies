@@ -1,8 +1,0 @@
-create table Companies (
-name varchar(255),
-Isin varchar(255),
-Sector tinyint,
-Subsector tinyint,
-TradingSystem tinyint,
-Indices varchar(255)
-);
