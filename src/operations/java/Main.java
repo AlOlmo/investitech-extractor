@@ -14,17 +14,7 @@ import java.util.Properties;
 
 public class Main {
     public static void main(String[] args) throws SQLException, IOException {
-        setDatabaseCredentials();
-        CompaniesRepository companiesRepository = CompaniesRepository.fromEnvVariables();
-        List<CompanyV2> lista = companiesRepository.selectAll();
-        for (CompanyV2 companyV2 : lista) {
-            System.out.println(companyV2);
-        }
-        ValuesRepository valuesRepository = ValuesRepository.fromEnvVariables();
-        List<StockValueV2> values = valuesRepository.selectValues();
-        for (StockValueV2 stockValueV2 : values) {
-            System.out.println(stockValueV2);
-        }
+
     }
 
     public static void setDatabaseCredentials() throws IOException {
