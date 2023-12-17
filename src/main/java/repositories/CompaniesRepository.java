@@ -1,8 +1,7 @@
-package repository;
+package repositories;
 
-import model.Company;
-import model.CompanyV2;
-import model.StockValueV2;
+import extractor.entities.Company;
+import repositories.entities.CompanyV2;
 
 import java.sql.*;
 import java.util.ArrayList;

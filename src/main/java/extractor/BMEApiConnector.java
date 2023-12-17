@@ -1,6 +1,8 @@
+package extractor;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
-import model.CompaniesResponse;
-import model.ValuesResponse;
+import extractor.entities.CompaniesResponse;
+import extractor.entities.ValuesResponse;
 import org.apache.hc.client5.http.fluent.Request;
 import org.apache.hc.core5.util.Timeout;
 

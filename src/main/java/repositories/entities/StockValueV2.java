@@ -1,4 +1,4 @@
-package model;
+package repositories.entities;
 
 public class StockValueV2 {
 
@@ -68,7 +68,7 @@ public class StockValueV2 {
 
     @Override
     public String toString() {
-        return "model.StockValue{" +
+        return "extractor.entities.StockValue{" +
                 "date='" + date + '\'' +
                 ", symbol=" + symbol +
                 ", price=" + price +

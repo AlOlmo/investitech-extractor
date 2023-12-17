@@ -1,4 +1,4 @@
-package model;
+package repositories.entities;
 
 public class CompanyV2 {
 

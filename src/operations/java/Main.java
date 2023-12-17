@@ -1,14 +1,6 @@
-import model.Company;
-import model.CompanyV2;
-import model.StockValueV2;
-import repository.CompaniesRepository;
-import repository.ValuesRepository;
-
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 

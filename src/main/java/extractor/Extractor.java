@@ -1,7 +1,9 @@
-import model.CompaniesResponse;
-import model.Company;
-import model.StockValue;
-import model.ValuesResponse;
+package extractor;
+
+import extractor.entities.CompaniesResponse;
+import extractor.entities.Company;
+import extractor.entities.StockValue;
+import extractor.entities.ValuesResponse;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;

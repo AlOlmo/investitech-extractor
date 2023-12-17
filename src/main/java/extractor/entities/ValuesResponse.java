@@ -1,21 +1,30 @@
-package model;
+package extractor.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.util.Arrays;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class CompaniesResponse {
 
-    private Company[] data;
+public class ValuesResponse {
+
+    private Details details;
+    private StockValue[] data;
     private boolean hasMoreResults;
 
-    // Getters - Setters
-    public Company[] getData() {
+    public Details getDetails() {
+        return details;
+    }
+
+    public void setDetails(Details details) {
+        this.details = details;
+    }
+
+    public StockValue[] getData() {
         return data;
     }
 
-    public void setData(Company[] data) {
+    public void setData(StockValue[] data) {
         this.data = data;
     }
 
@@ -29,8 +38,9 @@ public class CompaniesResponse {
 
     @Override
     public String toString() {
-        return "model.CompaniesResponse{" +
-                "data=" + Arrays.toString(data) +
+        return "extractor.entities.ValuesResponse{" +
+                "details=" + details +
+                ", data=" + Arrays.toString(data) +
                 ", hasMoreResults=" + hasMoreResults +
                 '}';
     }

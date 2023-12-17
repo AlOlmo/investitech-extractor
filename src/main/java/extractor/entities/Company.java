@@ -1,4 +1,4 @@
-package model;
+package extractor.entities;
 
 public class Company {
 

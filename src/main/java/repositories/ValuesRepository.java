@@ -1,7 +1,6 @@
-package repository;
+package repositories;
 
-import model.StockValue;
-import model.StockValueV2;
+import repositories.entities.StockValueV2;
 
 import java.sql.*;
 import java.util.ArrayList;
